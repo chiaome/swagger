@@ -1,0 +1,155 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample server. ",
+    "version": "1.0.0",
+    "title": "",
+    "termsOfService": "",
+    "contact": {
+      "email": ""
+    }
+  },
+  "host": "127.0.0.1:8088",
+  "basePath": "/",
+  "tags": [{
+    "name": "Query",
+    "description": "",
+  }, {
+    "name": "Ave",
+    "description": "",
+  }
+  ],
+  "schemes": ["http"],
+  "paths": {
+    "/query/": {
+      "get": {
+        "tags": ["Query"],
+        "summary": "Query the dataset by get method",
+        "description": "You can use ",
+        "operationId": "querybycontions",
+        "produces": [ "application/json"],
+        "parameters": [{
+          "name": "BIN",
+          "in": "query",
+          "description": "Building Identification Number. A number assigned by City Planning and used by Dept. of Buildings to reference information pertaining to an individual building.",
+          "required": false,
+          "type": "string",
+          "default": "3245111",
+          "collectionFormat": "multi"
+        },{
+          "name": "GEOTYPE",
+          "in": "query",
+          "description": "Indicates the reference source used to add or update the feature. ",
+          "required": false,
+          "type": "string",
+          "default": "MULTIPOLYGON",
+          "collectionFormat": "multi"
+        },{
+          "name": "LSTSTATYPE",
+          "in": "query",
+          "description": "Feature last status type (Demolition, Alteration, Geometry, Initialization, Correction, Marked for Construction, Marked For Demolition, Constructed).",
+          "required": false,
+          "type": "string",
+          "default": "Constructed",
+          "collectionFormat": "multi"
+        },{
+          "name": "HEIGHTROOF",
+          "in": "query",
+          "description": "Building Height is calculated as the difference from the building elevation from the Elevation point feature class and the elevation in the interpolated TIN model. ",
+          "required": false,
+          "type": "number",
+          "default": 37.5,
+          "collectionFormat": "multi"
+        },{
+          "name": "FEAT_CODE",
+          "in": "query",
+          "description": "Type of Building. List of values: 2100 = Building 5100 = Building Under Construction 5110 = Garage 2110 = Skybridge 1001 = Gas Station Canopy 1002 = Storage Tank 1003 = Placeholder (triangle for permitted bldg) 1004 = Auxiliary Structure (non-addressable, not garage) 1005 = Temporary Structure (e.g. construction trailer).",
+          "required": false,
+          "type": "string",
+          "default": "2100",
+          "collectionFormat": "multi"
+        },{
+          "name": "SHAPE_LEN",
+          "in": "query",
+          "description": "",
+          "required": false,
+          "type": "number",
+          "default": 183.80050188222,
+          "collectionFormat": "multi"
+        },{
+          "name": "CNSTRCT_YR",
+          "in": "query",
+          "description": "Building Identification Number. A number assigned by City Planning and used by Dept. of Buildings to reference information pertaining to an individual building.",
+          "required": false,
+          "type": "number",
+          "default": 1928,
+          "collectionFormat": "multi"
+        },{
+          "name": "BASE_BBL",
+          "in": "query",
+          "description": "Borough, block, and lot number for the tax lot that the footprint is physically located within.",
+          "required": false,
+          "type": "string",
+          "default": "3086910048",
+          "collectionFormat": "multi"
+        },{
+          "name": "GROUNDELEV",
+          "in": "query",
+          "description": "Lowest Elevation at the building ground level. Calculated from LiDAR or photogrammetrically.",
+          "required": false,
+          "type": "number",
+          "default": 6.0,
+          "collectionFormat": "multi"
+        },{
+          "name": "DOITT_ID",
+          "in": "query",
+          "description": "Unique identifier assigned by DOITT.",
+          "required": false,
+          "type": "string",
+          "default": "786626",
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        },
+      },
+
+    },
+
+    "/getAveByBaseBbl/": {
+      "get": {
+        "tags": ["Ave"],
+        "summary": "Get the average height by BASE_BBL",
+        "description": "You can get the average height by BASE_BBL",
+        "operationId": "getAveByBaseBbl",
+        "produces": [ "application/json"],
+        "parameters": [{
+          "name": "BASE_BBL",
+          "in": "query",
+          "description": "Borough, block, and lot number for the tax lot that the footprint is physically located within.",
+          "required": false,
+          "type": "string",
+          "default": "3086910048",
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+          },
+          "400": {
+            "description": "Invalid"
+          }
+        },
+
+      },
+
+    },
+
+  },
+
+}
